@@ -1,6 +1,6 @@
 
 // const PATH_BASE = "http://10.40.1.57:8080";
-const PATH_BASE = `https://staging-todolist.herokuapp.com/`;
+const PATH_BASE = `https://staging-todolist.herokuapp.com`;
 
 const PATH = `${PATH_BASE}/tasks`;
 
