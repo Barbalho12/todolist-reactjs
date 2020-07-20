@@ -4,17 +4,25 @@ import Home from './Home';
 
 import API from './API';
 
+import Signup from './components/Signup'
+
+import Button from '@material-ui/core/Button';
+
 const App = () => {
   const [user, setUser] = React.useState(null);
-
+  const [showSignup, setShowSignup] = React.useState(false);
 
   useEffect(() => {
     const email = localStorage.getItem('@todo-app/username');
     if (email != null) {
       API.getUserByEmail(email).then(response => {
-        response.json().then( user => {
-          setUser(user);
-        });
+        if(response.status===200){
+          response.json().then( user => {
+            setUser(user);
+          });
+        }else{
+          localStorage.removeItem('@todo-app/username');
+        }
       });
     }
   }, []);
@@ -24,12 +32,22 @@ const App = () => {
     const email = e.target.elements.username.value;
     API.getUserByEmail(email).then(response => {
       console.log(response);
-      response.json().then( user => {
-        setUser(user);
-        localStorage.setItem('@todo-app/username', user.email);
-      });
+      if(response.status===200){
+        response.json().then( user => {
+          setUser(user);
+          localStorage.setItem('@todo-app/username', user.email);
+        });
+      }else{
+        alert("Não foi possível encontrar o usuário!");
+      }
+      
     });
   };
+
+  const signup = (e) =>{
+    e.preventDefault(); 
+    setShowSignup(true)
+  }
 
   if (user !== null) {
     return (
@@ -41,7 +59,14 @@ const App = () => {
         <form style={styles.container} onSubmit={handleSubmit}>
           <input style={styles.username} type="text" name="username" placeholder="Email do usuário" required />
           <button type="submit" style={styles.submitButton}>Entrar</button>
+          <Button onClick={ signup  } color="primary">
+            Cadastre-se
+          </Button>
         </form>
+        {showSignup ?
+           <Signup setUser={setUser} setOpen={setShowSignup} />  :
+           null
+        }
       </div>
     );
   }

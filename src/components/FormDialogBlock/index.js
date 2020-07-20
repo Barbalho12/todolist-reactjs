@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
 function FormDialogBlock({user, setBlocks}) {
   const [open, setOpen] = React.useState(false);
   const [nameBlock, setNameBlock] = React.useState("");
@@ -32,18 +31,23 @@ function FormDialogBlock({user, setBlocks}) {
 
   const addBlock = (event) => {
     event.preventDefault();
-    API.createBlock(user.email, nameBlock).then(response => {
-      response.json().then( blocks => {
 
-        API.getBlocksByUserEmail(user.email).then(response => {
-          response.json().then( newBlocks => {
-            setBlocks(newBlocks);
-            setNameBlock("");
-            handleClose();
+    if(nameBlock && nameBlock.length >= 1){
+      API.createBlock(user.email, nameBlock).then(response => {
+        console.log(response);
+        if(response.status == 200 || response.status == 201){
+          response.json().then( blocks => {
+            API.getBlocksByUserEmail(user.email).then(response => {
+              response.json().then( newBlocks => {
+                setBlocks(newBlocks);
+                setNameBlock("");
+                handleClose();
+              });
+            });
           });
-        });
+        }
       });
-    });
+    }
   }
   return (
     <div>

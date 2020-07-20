@@ -18,12 +18,12 @@ const Sidebar = ({user, blocks, setBlocks}) => {
       <div className={classes.list}></div>
         {blocks.map((block) => {
             return (
-              <Button color="primary">
-                <SidebarLink key={`${block.id}`} to={`/${block.name}`}>{block.name}</SidebarLink>
+              <Button key={`block-${block.id}`} color="primary">
+                <SidebarLink  to={`/${block.name}`}>{block.name}</SidebarLink>
               </Button>
             );
         })}
-        <FormDialogBlock user={user} setBlocks={setBlocks}/>
+        <FormDialogBlock key={`add`} user={user} setBlocks={setBlocks}/>
     </Container>
   );
 }

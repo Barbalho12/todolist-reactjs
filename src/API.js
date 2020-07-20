@@ -125,7 +125,24 @@ const API = {
         return response;
     },
 
+    removeBlock : async (id) => {
+        const url = `${PATH_BASE}/blocks/${id}`;
+        const response = await fetch(url, {method:'DELETE'});
+        return response;
+    },
 
+    createUser : async (user) => {
+        const url = `${PATH_BASE}/users`;
+
+        const response = await fetch(url, {
+            method:'POST',  
+            headers:{
+                "Content-Type":"application/json"
+            }, 
+            body:JSON.stringify(user)
+        });
+        return response;
+    },
     webSocketURL:`${PATH_BASE}/subscribe`
 }
 

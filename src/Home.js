@@ -28,7 +28,7 @@ function Home({user}) {
       <GlobalStyle />
       <Container>
         <Sidebar user={user} blocks={blocks} setBlocks={setBlocks}/>
-        <Routes user={user} blocks={blocks}/>
+        <Routes user={user} blocks={blocks} setBlocks={setBlocks}/>
         <UserInfo user={user}/>
       </Container>
     </BrowserRouter>
