@@ -1,13 +1,19 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     topRigth:{
         position:"absolute",
         right:"10px",
-        top:"10px"
-
+        top:"10px",
+        display:"flex",
+        justifyItems: "center",
+        alignItems: "center"
+    },
+    name:{
+        color:"grey",
     }
 }));
 
@@ -31,7 +37,7 @@ const UserInfo = ({user}) => {
 
     return (
         <div className={classes.topRigth}>
-            <h2>{user.name}</h2>
+            <p className={classes.name}>{user.email}</p>
             <LogutButton />
         </div>
     );

@@ -6,12 +6,12 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import AddIcon from '@material-ui/icons/Add';
 import API from '../../API';
 
 const useStyles = makeStyles((theme) => ({
   bottom: {
-    marginTop: "100px",
+    marginTop: "40px",
     padding: "10px"
   }
 }));
@@ -48,6 +48,7 @@ function FormDialogBlock({user, setBlocks}) {
   return (
     <div>
       <Button className={classes.bottom}  color="primary" onClick={handleClickOpen}>
+        <AddIcon/>
         Novo bloco
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">

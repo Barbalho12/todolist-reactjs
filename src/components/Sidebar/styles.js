@@ -5,7 +5,7 @@ export const Container = styled.aside`
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  width: 100px;
+  width: 200px;
   height: 100%;
   background-color: #252526;
   flex-direction: column;
@@ -22,6 +22,6 @@ export const SidebarLink = styled(NavLink)`
   padding-top: 10px;
   color: #eee;
   &:hover {
-    color: #fff;
+    color: #f50057;
   }
 `; 

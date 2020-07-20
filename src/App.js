@@ -37,20 +37,29 @@ const App = () => {
     );
   } else {
     return (
-      <form style={styles.container} onSubmit={handleSubmit}>
-        <input style={styles.username} type="text" name="username" placeholder="Email do usuário" required />
-        <button type="submit" style={styles.submitButton}>Entrar</button>
-      </form>
+      <div style={styles.center}>
+        <form style={styles.container} onSubmit={handleSubmit}>
+          <input style={styles.username} type="text" name="username" placeholder="Email do usuário" required />
+          <button type="submit" style={styles.submitButton}>Entrar</button>
+        </form>
+      </div>
     );
   }
 }
 
 const styles = {
+  center:{
+    width: '100%',
+    display: 'flex',
+    justifyContent: "center"
+  },
   container: {
     display: 'flex',
     textAlign: 'center',
     flexDirection: 'column',
-    minWidth: '300px',
+  
+    width: 400,
+    justifyContent: "center",
     boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 20px',
     background: 'rgb(255, 255, 255)',
     borderRadius: '4px',
