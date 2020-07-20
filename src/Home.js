@@ -1,12 +1,9 @@
 import React, {useEffect} from 'react';
 import { BrowserRouter } from 'react-router-dom';
-
 import Sidebar from './components/Sidebar';
 import UserInfo from './components/UserInfo';
 import Routes from './routes';
-
 import API from './API';
-
 import GlobalStyle, { Container } from './styles';
 
 function Home({user}) {

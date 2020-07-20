@@ -7,8 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import API from '../../API';
 
-
-
 function Signup({setUser, setOpen}) {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -33,19 +31,13 @@ function Signup({setUser, setOpen}) {
             }else{
                 alert("Não foi possível criar o usuário!");
             }
-            
         });
     }else{
         alert("dados inválidos!");
     }
-    
   }
   return (
     <div>
-      {/* <Button className={classes.bottom}  color="primary" onClick={addUser}>
-        <AddIcon/>
-        Novo bloco
-      </Button> */}
       <Dialog open={true} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Cadastre-se</DialogTitle>
         <DialogContent>

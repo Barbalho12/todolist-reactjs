@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
-
 import API from '../../API';
-
 import CreateTaskForm from '../../components/CreateTaskForm';
 import BottomBar from '../../components/BottomBar';
 import TaskList from '../../components/TaskList';

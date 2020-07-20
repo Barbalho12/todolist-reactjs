@@ -23,24 +23,19 @@ const LogutButton = () => {
         localStorage.removeItem('@todo-app/username');
         window.location.reload();
     }
-
-
     return (
         <Button color="primary" onClick={handleLogout} className={classes.btlogout}>SAIR</Button>
     );
-    
 }
 
 const UserInfo = ({user}) => {
     const classes = useStyles();
-
     return (
         <div className={classes.topRigth}>
             <p className={classes.name}>{user.email}</p>
             <LogutButton />
         </div>
     );
-    
 }
 
 export default UserInfo;

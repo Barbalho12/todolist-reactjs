@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
-
 import Home from './Home';
-
 import API from './API';
-
 import Signup from './components/Signup'
-
 import Button from '@material-ui/core/Button';
 
 const App = () => {
