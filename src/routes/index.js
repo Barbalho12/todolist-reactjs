@@ -3,10 +3,18 @@ import { Switch, Route } from 'react-router-dom';
 
 import Main from '../pages/Main';
 
-const Routes = () => {
+import FormDialogBlock from '../components/FormDialogBlock';
+
+const Routes = ({user, blocks}) => {
+
   return (
     <Switch>
-      <Route path="/" exact component={Main} />
+       {blocks.map((block) => {
+            return (
+              <Route key={`${block.id}`} path={`/${block.name}`} render={(props) => <Main block={block} /> } />
+            );
+        })}
+      <Route path="/new" exact render={(props) => <FormDialogBlock user={user} blocks={blocks} />} />
     </Switch>
   );
 }

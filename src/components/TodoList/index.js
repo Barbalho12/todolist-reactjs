@@ -7,7 +7,7 @@ import BottomBar from '../../components/BottomBar';
 import TaskList from '../../components/TaskList';
 import AsyncService from '../../components/AsyncService';
 
-const TodoList = () => {
+const TodoList = ({block}) => {
     const [pageValue, setpageValue] = React.useState(0);
     const [listItens, setListItens] = React.useState([]);
     
@@ -15,19 +15,19 @@ const TodoList = () => {
   
     const update = () =>{
       if(temppageValue === 0){
-        API.findAll().then(response => {
+        API.findAllByBlock(block).then(response => {
           response.json().then( list => {
             setListItens(list);
           });
         });
       } else if(temppageValue === 1){
-        API.findAllLefts().then(response => {
+        API.findAllLeftsByBlock(block).then(response => {
           response.json().then( list => {
             setListItens(list);
           });
         });
       } else if(temppageValue === 2){
-        API.findAllCompleteds().then(response => {
+        API.findAllCompletedsByBlock(block).then(response => {
           response.json().then( list => {
             setListItens(list);
           });
@@ -47,7 +47,7 @@ const TodoList = () => {
     };
   
     const createTask = (newTaskDescription) => {
-      API.create(newTaskDescription).then( response => {
+      API.create(newTaskDescription, block).then( response => {
         update();
       });
     }

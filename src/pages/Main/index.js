@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from './styles';
@@ -24,13 +24,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Main = () => {
+const Main = ({block}) => {
   const classes = useStyles();
+
+  useEffect(() => {
+    console.log(block);
+  }, []);
+
+
   return (
     <Container className={classes.container}>
-      <h1 className={classes.title}>TODO List</h1>
+      <h1 className={classes.title}>{block.name}</h1>
       <Card className={classes.root}>
-        <TodoList/>
+        <TodoList block={block}/>
       </Card>
     </Container>
   );
