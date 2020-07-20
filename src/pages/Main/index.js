@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from './styles';
@@ -31,13 +31,9 @@ const useStyles = makeStyles((theme) => ({
 const Main = ({block, setBlocks}) => {
   const classes = useStyles();
 
-  useEffect(() => {
-    console.log(block);
-  }, []);
-
   const removeBlock = () => {
     API.removeBlock(block.id).then(response => {
-        if(response.status != 400 || response.status != 500 || response.status != 404){
+        if(response.status !== 400 || response.status !== 500 || response.status !== 404){
           
 
           API.getBlocksByUserEmail(block.user.email).then(response => {

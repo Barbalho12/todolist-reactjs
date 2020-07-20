@@ -19,7 +19,7 @@ const Sidebar = ({user, blocks, setBlocks}) => {
         {blocks.map((block) => {
             return (
               <Button key={`block-${block.id}`} color="primary">
-                <SidebarLink  to={`/${block.name}`}>{block.name}</SidebarLink>
+                <SidebarLink  to={`/todolist-reactjs/${block.name}`}>{block.name}</SidebarLink>
               </Button>
             );
         })}

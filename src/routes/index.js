@@ -11,10 +11,10 @@ const Routes = ({user, blocks, setBlocks}) => {
     <Switch>
        {blocks.map((block) => {
             return (
-              <Route key={`${block.id}`} path={`/${block.name}`} render={(props) => <Main block={block} setBlocks={setBlocks}/> } />
+              <Route key={`${block.id}`} path={`/todolist-reactjs/${block.name}`} render={(props) => <Main block={block} setBlocks={setBlocks}/> } />
             );
         })}
-      <Route key={`new`} path="/new" exact render={(props) => <FormDialogBlock user={user} blocks={blocks} />} />
+      <Route key={`new`} path="new" exact render={(props) => <FormDialogBlock user={user} blocks={blocks} />} />
     </Switch>
   );
 }

@@ -35,7 +35,7 @@ function FormDialogBlock({user, setBlocks}) {
     if(nameBlock && nameBlock.length >= 1){
       API.createBlock(user.email, nameBlock).then(response => {
         console.log(response);
-        if(response.status == 200 || response.status == 201){
+        if(response.status === 200 || response.status === 201){
           response.json().then( blocks => {
             API.getBlocksByUserEmail(user.email).then(response => {
               response.json().then( newBlocks => {
