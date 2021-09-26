@@ -16,7 +16,6 @@
     "react-websocket": "^2.1.0",
     "styled-components": "^5.1.1"
   },
-  
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
